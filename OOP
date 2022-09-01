@@ -1,0 +1,132 @@
+#Write a Python program to create a Vehicle class with max_speed and mileage instance attributes.
+class Vehicle:
+    def __init__(self,max_speed,mileage):
+        self.max_speed=max_speed
+        self.mileage=mileage
+
+model=Vehicle(250,19)
+print(model.max_speed,model.mileage)
+
+.......................................................................................................................................................................
+
+#Create a child class Bus that will inherit all of the variables and methods of the Vehicle class
+class Vehicle:
+    def __init__(self,name,max_speed,mileage):
+        self.name=name
+        self.max_speed=max_speed
+        self.mileage=mileage
+
+class four_wheeler(Vehicle):
+    pass
+
+my_car=four_wheeler("Audi",350,15)
+
+print("Vehicle name :",my_car.name,", max_speed :",my_car.max_speed,", mileage :",my_car.mileage)
+
+.......................................................................................................................................................................
+
+#Create a Bus class that inherits from the Vehicle class. Give the capacity argument of Bus.seating_capacity() a default value of 50.
+class Vehicle:
+    def __init__(self,name,max_speed,mileage):
+        self.name=name
+        self.max_speed=max_speed
+        self.mileage=mileage
+
+    def seating_capasity(self,capacity):
+        return f"The seating capasity of a {self.name} is {capacity} passengers"
+
+
+class Bus(Vehicle):
+    def seating_capasity(self, capacity=50):
+        return super().seating_capasity(capacity=50)
+
+School_bus=Bus("Volvo",150,30)
+print(School_bus.seating_capasity())
+
+.......................................................................................................................................................................
+
+#Define a property that must have the same value for every class instance (object)
+
+#Define a class attribute”color” with a default value white. I.e., Every Vehicle should be white.
+
+class Vehicle:
+    color="white"
+    def __init__(self,name,max_speed,mileage):
+        self.name=name
+        self.max_speed=max_speed
+        self.mileage=mileage
+
+class Bus(Vehicle):
+    pass
+
+class four_wheeler(Vehicle):
+    pass
+
+school_bus=Bus("Volvo",150,35)
+my_car=four_wheeler("Rolce Roice",250,12)
+
+print(school_bus.color, school_bus.name, "Speed:", school_bus.max_speed, "Mileage:", school_bus.mileage)
+print("Colour :",my_car.color,"Brand",my_car.name,"max_speed",my_car.max_speed,"mileage",my_car.mileage)
+
+.......................................................................................................................................................................
+
+#Create a Bus child class that inherits from the Vehicle class. The default fare charge of any vehicle is seating capacity * 100.
+# If Vehicle is Bus instance, we need to add an extra 10% on full fare as a maintenance charge. So total fare for bus instance will become 
+# the final amount = total fare + 10% of the total fare.
+
+class Vehicle:
+    def __init__(self, name, mileage, capacity):
+        self.name = name
+        self.mileage = mileage
+        self.capacity = capacity
+
+    def fare(self):
+        return self.capacity * 100
+
+#class Bus(Vehicle):
+    #pass
+    
+class Bus(Vehicle):
+    def fare(self):
+        amount = super().fare()
+        amount += amount * 10 / 100 #amount =amount+ amount * 10 / 100
+        return amount
+
+School_bus = Bus("School Volvo", 12, 50)
+print("Total Bus fare is:", School_bus.fare())
+
+.......................................................................................................................................................................
+
+#Write a program to determine which class a given Bus object belongs to.
+
+class Vehicle:
+    def __init__(self, name, mileage, capacity):
+        self.name = name
+        self.mileage = mileage
+        self.capacity = capacity
+
+class Bus(Vehicle):
+    pass
+
+School_bus = Bus("School Volvo", 12, 50)
+
+print(type(School_bus))
+
+.......................................................................................................................................................................
+
+#Determine if School_bus is also an instance of the Vehicle class
+
+class Vehicle:
+    def __init__(self, name, mileage, capacity):
+        self.name = name
+        self.mileage = mileage
+        self.capacity = capacity
+
+class Bus(Vehicle):
+    pass
+
+School_bus = Bus("School Volvo", 12, 50)
+
+print(isinstance(School_bus,Vehicle))
+
+.......................................................................................................................................................................
