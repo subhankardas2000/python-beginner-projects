@@ -1,0 +1,17 @@
+We can generate the random string using the random module and string module. Use the below steps to create a random string of any length in Python.
+
+Import string and random module
+The string module contains various string constant which contains the ASCII characters of all cases. It has separate constants for lowercase, uppercase letters, digits, and special symbols, which we use as a source to generate a random string.
+Pass string constants as a source of randomness to the random module to create a random string
+
+Use the string constant ascii_lowercase
+The string.ascii_lowercase returns a list of all the lowercase letters from ‘a’ to ‘z’. This data will be used as a source to generate random characters.
+
+Decide the length of a string
+Decide how many characters you want in the resultant string.
+
+Use a for loop and random choice() function to choose characters from a source
+Run a for loop till the decided string length and use the random choice() function in each iteration to pick a single character from the string constant and add it to the string variable using a join() function. print the final string after loop competition
+
+Generate a random Password
+Use the string.ascii_letters, string.digits, and string.punctuation constants together to create a random password and repeat the first four steps.
